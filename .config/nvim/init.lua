@@ -497,6 +497,13 @@ require('lazy').setup({
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
+    opts = {
+      servers = {
+        sourcekit = {
+          cmd = "Library/Developer/Toolchains/swift-6.1.2-RELEASE.xctoolchain/usr/bin/sourcekit-lsp",
+        }
+      }
+    },
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
@@ -512,6 +519,7 @@ require('lazy').setup({
       'saghen/blink.cmp',
     },
     config = function()
+      require("lspconfig").sourcekit.setup({})
       -- Brief aside: **What is LSP?**
       --
       -- LSP is an initialism you've probably heard, but might not understand what it is.
