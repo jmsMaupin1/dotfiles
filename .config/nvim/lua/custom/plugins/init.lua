@@ -5,6 +5,7 @@
 return {
   vim.keymap.set('n', '<C-e>', ':Ex<CR>'),
   vim.keymap.set('n', '<C-x>', ':w<CR>:Ex<CR>'),
-  vim.keymap.set('i', 'jk', '<C-o>'),
   vim.keymap.set('n', '<C-w>', ':w<CR>'),
+	vim.keymap.set('n', '<C-q>', ':q<CR>'),
+  vim.keymap.set('i', 'jk', '<C-o>'),
 }
