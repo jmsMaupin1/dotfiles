@@ -423,6 +423,7 @@ require('lazy').setup({
           },
           find_files = {
             follow = true,
+            hidden = true,
           },
           live_grep = {
             additional_args = function(_)
