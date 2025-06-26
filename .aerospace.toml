@@ -10,9 +10,7 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = [
-    'exec-and-forget wezterm start',
-]
+after-startup-command = []
 
 # Start AeroSpace at login
 start-at-login = true
@@ -155,8 +153,8 @@ automatically-unhide-macos-hidden-apps = false
 
 # Assign workspaces to specific monitors, they will be unable to move
 [workspace-to-monitor-force-assignment]
-t = 'scepter' # terminal
-w = '^hp 27m$' # browser
+t = 'Sceptre F27' # terminal
+w = 'hp' # browser
 m = 'built-in' # messages
 
 # Assign apps to workspaces
