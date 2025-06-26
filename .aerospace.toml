@@ -10,7 +10,13 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+# uncomment this out once sketchybar is working as intended to have it start on startup
+# after-startup-command = ['exec-and-forget sketchybar']
+
+# Notify sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -114,14 +120,14 @@ automatically-unhide-macos-hidden-apps = false
     alt-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-t = 'workspace t' # Terminal
-    alt-m = 'workspace m' # Messages (teams, discord, etc...)
-    alt-w = 'workspace w' # Webrowser
+    alt-t = 'workspace 1_T' # Terminal
+    alt-m = 'workspace 3_M' # Messages (teams, discord, etc...)
+    alt-w = 'workspace 2_W' # Webrowser
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-shift-t = 'move-node-to-workspace t'
-    alt-shift-m = 'move-node-to-workspace m'
-    alt-shift-b = 'move-node-to-workspace w'
+    alt-shift-t = 'move-node-to-workspace 1_T'
+    alt-shift-m = 'move-node-to-workspace 3_M'
+    alt-shift-b = 'move-node-to-workspace 2_W'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -153,27 +159,27 @@ automatically-unhide-macos-hidden-apps = false
 
 # Assign workspaces to specific monitors, they will be unable to move
 [workspace-to-monitor-force-assignment]
-t = 'Sceptre F27' # terminal
-w = 'hp' # browser
-m = 'built-in' # messages
+1_T = 'Sceptre F27' # terminal
+2_W = 'hp' # browser
+3_M = 'built-in' # messages
 
 # Assign apps to workspaces
 [[on-window-detected]]
 	if.app-id = 'com.google.Chrome'
-	run = 'move-node-to-workspace w'
+	run = 'move-node-to-workspace 2_W'
 
 [[on-window-detected]]
 	if.app-id = 'com.github.wez.wezterm'
-	run = 'move-node-to-workspace t'
+	run = 'move-node-to-workspace 1_T'
 
 [[on-window-detected]]
 	if.app-name-regex-substring = 'cursor'
-	run = 'move-node-to-workspace t' 
+	run = 'move-node-to-workspace 1_T' 
 
 [[on-window-detected]]
 	if.app-name-regex-substring = 'teams'
-	run = 'move-node-to-workspace m'
+	run = 'move-node-to-workspace 3_M'
 
 [[on-window-detected]]
 	if.app-name-regex-substring = 'discord'
-	run = 'move-node-to-workspace m'
+	run = 'move-node-to-workspace 3_M'
