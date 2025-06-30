@@ -64,12 +64,12 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 5
-    inner.vertical =   5
-    outer.left =       5
-    outer.bottom =     0
-    outer.top =        5
-    outer.right =      5
+    inner.horizontal = 20
+    inner.vertical =   20
+    outer.left =       20
+    outer.bottom =     20
+    outer.top =        50
+    outer.right =      20
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -121,11 +121,13 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     alt-t = 'workspace 1_T' # Terminal
+		alt-c = 'workspace 1_C' # Cursor
     alt-m = 'workspace 3_M' # Messages (teams, discord, etc...)
     alt-w = 'workspace 2_W' # Webrowser
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-t = 'move-node-to-workspace 1_T'
+    alt-shift-c = 'move-node-to-workspace 1_C'
     alt-shift-m = 'move-node-to-workspace 3_M'
     alt-shift-b = 'move-node-to-workspace 2_W'
 
@@ -163,18 +165,18 @@ automatically-unhide-macos-hidden-apps = false
 2_W = 'hp' # browser
 3_M = 'built-in' # messages
 
-# Assign apps to workspaces
-[[on-window-detected]]
-	if.app-id = 'com.google.Chrome'
-	run = 'move-node-to-workspace 2_W'
-
+# Assign apps to workspace
 [[on-window-detected]]
 	if.app-id = 'com.github.wez.wezterm'
 	run = 'move-node-to-workspace 1_T'
 
 [[on-window-detected]]
 	if.app-name-regex-substring = 'cursor'
-	run = 'move-node-to-workspace 1_T' 
+	run = 'move-node-to-workspace 1_C' 
+
+[[on-window-detected]]
+	if.app-id = 'com.google.Chrome'
+	run = 'move-node-to-workspace 2_W'
 
 [[on-window-detected]]
 	if.app-name-regex-substring = 'teams'
