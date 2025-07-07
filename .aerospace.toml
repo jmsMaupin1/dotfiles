@@ -161,7 +161,7 @@ automatically-unhide-macos-hidden-apps = false
 
 # Assign workspaces to specific monitors, they will be unable to move
 [workspace-to-monitor-force-assignment]
-1_T = 'Sceptre F27' # terminal
+1_T = ['Sceptre F27', 'usb display'] # terminal
 2_W = 'hp' # browser
 3_M = 'built-in' # messages
 
